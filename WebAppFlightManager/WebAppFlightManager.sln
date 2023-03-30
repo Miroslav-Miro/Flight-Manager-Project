@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManager", "FlightManager\FlightManager.csproj", "{CF56C93C-EFFA-4B57-912F-232A78618474}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{70A7F444-9BE7-40A5-B344-F2B7C3D696BA}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF56C93C-EFFA-4B57-912F-232A78618474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF56C93C-EFFA-4B57-912F-232A78618474}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF56C93C-EFFA-4B57-912F-232A78618474}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF56C93C-EFFA-4B57-912F-232A78618474}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3017FF6A-92EB-47AC-B2F8-4D762A71634B}
+	EndGlobalSection
+EndGlobal
