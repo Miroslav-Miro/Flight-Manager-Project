@@ -1,4 +1,4 @@
-﻿namespace FlightManager.Data.Models.Enums
+﻿namespace FlightManager.Models.Enums
 {
     public enum TicketType
     {

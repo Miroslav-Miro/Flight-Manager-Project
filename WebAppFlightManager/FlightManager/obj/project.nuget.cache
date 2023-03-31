@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oxSFspudqlvLzjem2t8qHbuZTXuMGwkdZkuiiQmIdO06wl15V2Npy3m0ndBo09I8zKufCY5pGu/R9hVVrtRJtw==",
+  "dgSpecHash": "dwWecqNhvmj2nKnaELOyRudmu7k3rAT7OTohfp+jgQK/w+6jvorlMKQzIWIgmO6MqDUU9pdzpq/f+yox+/Unig==",
   "success": true,
-  "projectFilePath": "C:\\Users\\miros\\Desktop\\WebAppFlightManager\\WebAppFlightManager\\FlightManager\\FlightManager.csproj",
+  "projectFilePath": "C:\\Users\\miros\\Desktop\\WebAppFlightManager\\Flight-Manager-Project\\WebAppFlightManager\\FlightManager\\FlightManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\miros\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\miros\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.26\\microsoft.aspnetcore.cryptography.internal.3.1.26.nupkg.sha512",

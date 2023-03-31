@@ -1,4 +1,4 @@
-﻿namespace FlightManager.Data.Models
+﻿namespace FlightManager.Models
 {
     using System;
     using System.Collections.Generic;
@@ -15,13 +15,17 @@
 
         public string StartingLocation { get; set; }
 
-        public string Destinatio { get; set; }
+        public string Destination { get; set; }
 
         public DateTime? TimeTakeOf { get; set; }
 
         public DateTime? TimeLanding { get; set; }
 
         public string AirplaneType { get; set; }
+
+        public string PilotId { get; set; }
+
+        public virtual User Pilot { get; set; }
 
         public int UniqueNumber { get; set; }
 

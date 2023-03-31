@@ -1,7 +1,7 @@
-﻿namespace FlightManager.Data.Models
+﻿namespace FlightManager.Models
 {
     using System;
-    using FlightManager.Data.Models.Enums;
+    using FlightManager.Models.Enums;
 
     public class Reservation
     {
@@ -27,6 +27,12 @@
         public TicketType TicketType { get; set; }
 
         public string Email { get; set; }
+
+        public string FlightId { get; set; }
+
+        public virtual Flight Flight { get; set; }
+
+
 
     }
 }

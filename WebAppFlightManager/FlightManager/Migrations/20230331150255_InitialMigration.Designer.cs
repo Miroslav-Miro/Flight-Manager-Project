@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlightManager.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230329201516_InitialMigration")]
+    [Migration("20230331150255_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,8 +35,11 @@ namespace FlightManager.Migrations
                     b.Property<int>("BusinessClassSeats")
                         .HasColumnType("int");
 
-                    b.Property<string>("Destinatio")
+                    b.Property<string>("Destination")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PilotId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("StartingLocation")
                         .HasColumnType("nvarchar(max)");
@@ -52,6 +55,8 @@ namespace FlightManager.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("PilotId");
+
                     b.ToTable("Flights");
                 });
 
@@ -65,6 +70,9 @@ namespace FlightManager.Migrations
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FlightId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
@@ -86,6 +94,8 @@ namespace FlightManager.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("FlightId");
+
                     b.ToTable("Reservations");
                 });
 
@@ -97,7 +107,7 @@ namespace FlightManager.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("Addres")
+                    b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -130,14 +140,11 @@ namespace FlightManager.Migrations
                     b.Property<int>("PIN")
                         .HasColumnType("int");
 
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PhoneNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
@@ -152,9 +159,6 @@ namespace FlightManager.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -360,6 +364,20 @@ namespace FlightManager.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("FlightManager.Data.Models.Flight", b =>
+                {
+                    b.HasOne("FlightManager.Data.Models.User", "Pilot")
+                        .WithMany()
+                        .HasForeignKey("PilotId");
+                });
+
+            modelBuilder.Entity("FlightManager.Data.Models.Reservation", b =>
+                {
+                    b.HasOne("FlightManager.Data.Models.Flight", "Flight")
+                        .WithMany()
+                        .HasForeignKey("FlightId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

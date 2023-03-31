@@ -1,4 +1,5 @@
 ﻿using FlightManager.Models;
+using FlightManager.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,6 +13,7 @@ namespace FlightManager.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IUsersService service;
 
         public HomeController(ILogger<HomeController> logger)
         {
