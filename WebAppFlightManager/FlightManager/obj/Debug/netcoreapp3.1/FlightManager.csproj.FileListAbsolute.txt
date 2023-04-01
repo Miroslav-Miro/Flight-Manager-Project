@@ -778,3 +778,4 @@ C:\Users\miros\Desktop\WebAppFlightManager\Flight-Manager-Project\WebAppFlightMa
 C:\Users\miros\Desktop\WebAppFlightManager\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\FlightManager.dll
 C:\Users\miros\Desktop\WebAppFlightManager\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\FlightManager.pdb
 C:\Users\miros\Desktop\WebAppFlightManager\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\FlightManager.genruntimeconfig.cache
+C:\Users\miros\Desktop\WebAppFlightManager\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PagingPartial.cshtml.g.cs

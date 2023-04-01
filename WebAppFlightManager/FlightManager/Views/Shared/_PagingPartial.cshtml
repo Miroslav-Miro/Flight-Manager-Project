@@ -1,0 +1,60 @@
+﻿@model PagingViewModel
+<nav aria-label="..." class="">
+    <ul class="pagination  justify-content-center ">
+        <li style="margin-right:5px">
+            <form asp-controller="Requests" asp-action="Index" method="post">
+                <select asp-for="ItemsPerPage" class="form-control border-dark" onchange="changeItemsPerPage();">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                </select>
+                <input type="submit" id="loginSubmit" style="visibility:hidden" />
+            </form>
+
+        </li>F
+        <li></li>
+        <li class="page-item @if (!Model.HasPreviousPage) {
+        <text>disabled</text>
+}">
+            <a class="page-link" asp-action="@Model.Action" asp-route-page="@Model.PreviousPageNumber" asp-route-itemsPerPage="@Model.ItemsPerPage">
+                <i class="fas fa-step-backward"></i>
+
+            </a>
+        </li>
+        @for (int i = Model.Page - 2; i < Model.Page; i++)
+        {
+            if (i > 0)
+            {
+                <li class="page-item"><a class="page-link" asp-action="@Model.Action" asp-route-page="@i" asp-route-itemsPerPage="@Model.ItemsPerPage">@i</a></li>
+            }
+        }
+        <li class="page-item active" aria-current="page">
+            <span class="page-link">
+                @Model.Page
+                <span class="sr-only">(current)</span>
+            </span>
+        </li>
+        @for (int i = Model.Page + 1; i <= Model.Page + 2; i++)
+        {
+            if (i <= Model.PagesCount)
+            {
+                <li class="page-item"><a class="page-link" asp-action="@Model.Action" asp-route-page="@i" asp-route-itemsPerPage="@Model.ItemsPerPage">@i</a></li>
+            }
+        }
+        <li class="page-item @if(!Model.HasNextPage){
+        <text>disabled</text>
+}">
+            <a class="page-link" asp-action="@Model.Action" asp-route-page="@Model.NextPageNumber" asp-route-itemsPerPage="@Model.ItemsPerPage"><i class="fas fa-step-forward"></i></a>
+        </li>
+    </ul>
+</nav>
+
+<script type="text/javascript">
+    function changeItemsPerPage() {
+
+        console.log('Items per page changed!')
+
+        document.getElementById('loginSubmit').click();
+    }
+</script>

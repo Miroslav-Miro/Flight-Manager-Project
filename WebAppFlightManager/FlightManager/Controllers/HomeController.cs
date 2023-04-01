@@ -13,7 +13,7 @@ namespace FlightManager.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IUsersService service;
+        //private readonly IUsersService service;
 
         public HomeController(ILogger<HomeController> logger)
         {

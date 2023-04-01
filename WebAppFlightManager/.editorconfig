@@ -5,3 +5,9 @@ dotnet_diagnostic.SA1600.severity = none
 
 # CS0114: Member hides inherited member; missing override keyword
 dotnet_diagnostic.CS0114.severity = none
+
+# SA1633: File should have header
+dotnet_diagnostic.SA1633.severity = none
+
+# SA1516: Elements should be separated by blank line
+dotnet_diagnostic.SA1516.severity = none
