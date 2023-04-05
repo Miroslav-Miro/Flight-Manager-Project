@@ -1,6 +1,7 @@
 ﻿namespace FlightManager.Models
 {
     using System;
+    using System.Collections.Generic;
     using Microsoft.AspNetCore.Identity;
 
     public class User : IdentityUser<string>
@@ -18,6 +19,6 @@
 
         public string Address { get; set; }
 
-        public string Role { get; set; }
+        public virtual ICollection<Flight> Flights { get; set; } = new List<Flight>();
     }
 }
