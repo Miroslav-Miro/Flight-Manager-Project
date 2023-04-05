@@ -4,11 +4,12 @@
     using System.Threading.Tasks;
     using FlightManager.Data;
     using FlightManager.Models;
+    using FlightManager.Services.Contracts;
     using FlightManager.ViewModels.Users;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
 
-    public class UsersService:IUsersService
+    public class UsersService : IUsersService
     {
         private ApplicationDbContext context;
         private UserManager<User> userManager;
@@ -44,6 +45,21 @@
             };
 
             await this.userManager.CreateAsync(user, model.Password);
+        }
+
+        public async Task UpdateUserAsync(EditUserViewModel model)
+        {
+            User user = await context.Users.FindAsync(model.Id);
+
+            string role = userManager.GetRolesAsync(user).GetAwaiter().GetResult().FirstOrDefault();
+
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+
+            // Change role
+           
+
+            await context.SaveChangesAsync();
         }
 
         public async Task<EditUserViewModel> GetUserToEditByIdAsync(string id)
