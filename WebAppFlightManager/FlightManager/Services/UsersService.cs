@@ -42,6 +42,8 @@
                 LastName = model.LastName,
                 EmailConfirmed = true,
                 SecurityStamp = string.Empty,
+                PIN = model.PIN,
+                Address = model.Addres,
             };
 
             await this.userManager.CreateAsync(user, model.Password);

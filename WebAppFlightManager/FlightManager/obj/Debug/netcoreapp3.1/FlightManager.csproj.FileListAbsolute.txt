@@ -779,3 +779,5 @@ C:\Users\miros\Desktop\WebAppFlightManager\Flight-Manager-Project\WebAppFlightMa
 C:\Users\miros\Desktop\WebAppFlightManager\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\FlightManager.pdb
 C:\Users\miros\Desktop\WebAppFlightManager\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\FlightManager.genruntimeconfig.cache
 C:\Users\miros\Desktop\WebAppFlightManager\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PagingPartial.cshtml.g.cs
+C:\Users\miros\Desktop\WebAppFlightManager\Flight-Manager-Project\WebAppFlightManager\FlightManager\bin\Debug\netcoreapp3.1\SendGrid.dll
+C:\Users\miros\Desktop\WebAppFlightManager\Flight-Manager-Project\WebAppFlightManager\FlightManager\bin\Debug\netcoreapp3.1\StarkbankEcdsa.dll

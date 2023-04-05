@@ -14,7 +14,7 @@
 
         public string LastName { get; set; }
 
-        public  int PIN { get; set; }
+        public string PIN { get; set; }
 
         public string Address { get; set; }
 
