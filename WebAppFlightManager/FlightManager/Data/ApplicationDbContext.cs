@@ -29,10 +29,15 @@
             base.OnModelCreating(builder);
 
             User admin = CreateUser("admin@abv.bg");
+            User user = CreateUser("miroslav@abv.bg");
 
             builder.Entity<User>().HasData(admin);
 
+            builder.Entity<User>().HasData(user);
+
+
             IdentityRole adminRole = CreateRole("Admin");
+            IdentityRole userRole = CreateRole("User");
 
             builder.Entity<IdentityRole>(
                 option =>
@@ -40,6 +45,7 @@
                     option.HasData(new IdentityRole[]
                     {
                         adminRole,
+                        userRole,
                     }
                     );
                 });
