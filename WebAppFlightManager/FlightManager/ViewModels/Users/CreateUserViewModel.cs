@@ -35,11 +35,10 @@
         public string PhoneNumber { get; set; }
 
         [Required]
-        [RegularExpression("\\(?\\+[0-9]{1,3}\\)? ?-?[0-9]{1,3} ?-?[0-9]{3,5} ?-?[0-9]{4}( ?-?[0-9]{3})? ?(\\w{1,10}\\s?\\d{1,6})?")]
         public string PIN { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
-        public string Addres { get; set; }
+        public string Address { get; set; }
     }
 }

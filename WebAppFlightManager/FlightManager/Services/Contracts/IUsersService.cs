@@ -5,6 +5,9 @@
 
     public interface IUsersService
     {
+        Task CreateUserAsync(CreateUserViewModel model);
+
+
         Task<UserViewModel> GetUserByIdAsync(string id);
 
         Task<UsersViewModel> GetUsersAsync(int page = 1, int count = 10);

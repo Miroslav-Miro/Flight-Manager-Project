@@ -43,7 +43,7 @@
                 EmailConfirmed = true,
                 SecurityStamp = string.Empty,
                 PIN = model.PIN,
-                Address = model.Addres,
+                Address = model.Address,
             };
 
             await this.userManager.CreateAsync(user, model.Password);
