@@ -1,0 +1,67 @@
+﻿@using FlightManager.ViewModels.Flights;
+@model IndexFlightsViewModel
+
+@if (User.IsInRole("Admin"))
+{
+    <p id="my-p">
+        <a asp-action="Create" class="btn" style="background-color:turquoise">Create New</a>
+    </p>
+}
+
+<table class="table table-hover table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Starting location
+            </th>
+            <th>
+                Destination
+            </th>
+            <th>
+                Time take of
+            </th>
+            <th>
+                Time landing
+            </th>
+            <th>
+                Duration
+            </th>
+            <th>
+                Airplane type
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Flights)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartingLocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Destination)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeTakeOf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeLanding)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AirplaneType)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<partial name="_PagingPartial" />

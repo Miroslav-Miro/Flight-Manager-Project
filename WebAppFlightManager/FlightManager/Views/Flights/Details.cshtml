@@ -1,0 +1,36 @@
+﻿@using FlightManager.ViewModels.Flights;
+@model DetailsFlightViewModel
+
+<div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-lg-8 col-xl-6">
+        <div class="card rounded-3" style="background-color:#F0F2F5">
+            <div class="card-body p-4 p-md-5">
+                <div class="card" >
+                    <div class="card-body">
+
+                        <label asp-for="StartingLocation"></label>
+                        <p class="card-text">@Model.StartingLocation</p>
+                        <label asp-for="Destination"></label>
+                        <p class="card-text"> @Model.Destination</p>
+                        <label asp-for="Pilot"></label>
+                        <p class="card-text"> @Model.Pilot</p>
+                        <label asp-for="AllSeats"></label>
+                        <p class="card-text"> @Model.AllSeats</p>
+                        <label asp-for="BusinessClassSeats"></label>
+                        <p class="card-text"> @Model.BusinessClassSeats</p>
+                        <label asp-for="TimeTakeOf"></label>
+                        <p class="card-text"> @Model.TimeTakeOf</p>
+                        <label asp-for="TimeLanding"></label>
+                        <p class="card-text"> @Model.TimeLanding</p>
+                        <label asp-for="Duration"></label>
+                        <p class="card-text"> @Model.Duration</p>
+                    </div>
+                </div>
+
+                <div>
+                    <a asp-action="Index">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
