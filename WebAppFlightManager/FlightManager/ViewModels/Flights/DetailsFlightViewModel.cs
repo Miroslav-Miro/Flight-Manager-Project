@@ -2,10 +2,8 @@
 
 namespace FlightManager.ViewModels.Flights
 {
-    public class IndexFlightViewModel
+    public class DetailsFlightViewModel
     {
-        public string Id { get; set; }
-
         public string StartingLocation { get; set; }
 
         public string Destination { get; set; }
@@ -19,6 +17,8 @@ namespace FlightManager.ViewModels.Flights
         public string AirplaneType { get; set; }
 
         public string UserId { get; set; }
+
+        public string Pilot { get; set; }
 
         public int AllSeats { get; set; }
 

@@ -8,9 +8,9 @@
 
         public string Destination { get; set; }
 
-        public DateTime TimeTakeOf { get; set; }
+        public DateTime? TimeTakeOf { get; set; }
 
-        public DateTime TimeLanding { get; set; }
+        public DateTime? TimeLanding { get; set; }
 
         public string AirplaneType { get; set; }
 

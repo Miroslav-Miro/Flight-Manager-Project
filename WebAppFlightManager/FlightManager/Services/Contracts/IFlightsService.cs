@@ -7,6 +7,10 @@ namespace FlightManager.Services.Contracts
     {
         Task CreateFlightAsync(CreateFlightViewModel model);
 
+        Task DeleteFlightAsync(string id);
+
         Task<IndexFlightsViewModel> GetFlightsAsync(IndexFlightsViewModel model);
+
+        Task<DetailsFlightViewModel> GetFlightDetails(string id);
     }
 }

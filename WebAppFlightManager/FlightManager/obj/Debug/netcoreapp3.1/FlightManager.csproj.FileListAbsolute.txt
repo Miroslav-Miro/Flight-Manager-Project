@@ -781,3 +781,14 @@ C:\Users\miros\Desktop\WebAppFlightManager\Flight-Manager-Project\WebAppFlightMa
 C:\Users\miros\Desktop\WebAppFlightManager\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PagingPartial.cshtml.g.cs
 C:\Users\miros\Desktop\WebAppFlightManager\Flight-Manager-Project\WebAppFlightManager\FlightManager\bin\Debug\netcoreapp3.1\SendGrid.dll
 C:\Users\miros\Desktop\WebAppFlightManager\Flight-Manager-Project\WebAppFlightManager\FlightManager\bin\Debug\netcoreapp3.1\StarkbankEcdsa.dll
+C:\Users\mtsan\OneDrive\Desktop\nadya\FM.web\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\FlightManager.csproj.AssemblyReference.cache
+C:\Users\mtsan\OneDrive\Desktop\nadya\FM.web\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\FlightManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mtsan\OneDrive\Desktop\nadya\FM.web\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\FlightManager.AssemblyInfoInputs.cache
+C:\Users\mtsan\OneDrive\Desktop\nadya\FM.web\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\FlightManager.AssemblyInfo.cs
+C:\Users\mtsan\OneDrive\Desktop\nadya\FM.web\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\FlightManager.csproj.CoreCompileInputs.cache
+C:\Users\mtsan\OneDrive\Desktop\nadya\FM.web\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\FlightManager.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\mtsan\OneDrive\Desktop\nadya\FM.web\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\FlightManager.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\mtsan\OneDrive\Desktop\nadya\FM.web\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\FlightManager.RazorAssemblyInfo.cache
+C:\Users\mtsan\OneDrive\Desktop\nadya\FM.web\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\FlightManager.RazorAssemblyInfo.cs
+C:\Users\mtsan\OneDrive\Desktop\nadya\FM.web\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\FlightManager.dll
+C:\Users\mtsan\OneDrive\Desktop\nadya\FM.web\Flight-Manager-Project\WebAppFlightManager\FlightManager\obj\Debug\netcoreapp3.1\FlightManager.pdb
