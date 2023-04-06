@@ -8,13 +8,13 @@
 
         public string Destination { get; set; }
 
-        public DateTime? TimeTakeOf { get; set; }
+        public DateTime TimeTakeOf { get; set; }
 
-        public DateTime? TimeLanding { get; set; }
+        public DateTime TimeLanding { get; set; }
 
         public string AirplaneType { get; set; }
 
-        public string PilotId { get; set; }
+        public string UserId { get; set; }
 
         public int AllSeats { get; set; }
 
