@@ -3,6 +3,7 @@
     using System.Data;
     using System.Security.Claims;
     using System.Threading.Tasks;
+    using FlightManager.Common;
     using FlightManager.Services.Contracts;
     using FlightManager.ViewModels.Flights;
     using Microsoft.AspNetCore.Authorization;
@@ -25,7 +26,7 @@
         }
 
         // GET: Create
-        // [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = GlobalConstants.AdminRole)]
         public async Task<IActionResult> Create()
         {
             CreateFlightViewModel model = new CreateFlightViewModel();
@@ -34,7 +35,7 @@
             return this.View(model);
         }
 
-        // [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = GlobalConstants.AdminRole)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateFlightViewModel model)
@@ -60,6 +61,30 @@
         public async Task<IActionResult> Details(string id)
         {
             DetailsFlightViewModel model = await this.flightsService.GetFlightDetails(id);
+            return this.View(model);
+        }
+
+        //[Authorize(Roles = (GlobalConstants.AdminRole))]
+        [HttpGet]
+        public async Task<IActionResult> EditByAdmin(string id)
+        {
+            EditFlightViewModel model = await this.flightsService.GetFlightToEditAsync(id);
+            return this.View(model);
+        }
+
+        //[Authorize(Roles = (GlobalConstants.AdminRole))]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditByAdmin(EditFlightViewModel model)
+        {
+            if (this.ModelState.IsValid)
+            {
+                await this.flightsService.EditFlightByAdminAsync(model);
+                return this.RedirectToAction(nameof(this.Index));
+            }
+
+            string userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            model.Pilots = await this.flightsService.GetPilotsSelectListAsync();
             return this.View(model);
         }
     }

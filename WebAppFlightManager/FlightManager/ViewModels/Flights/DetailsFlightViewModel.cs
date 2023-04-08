@@ -4,6 +4,8 @@ namespace FlightManager.ViewModels.Flights
 {
     public class DetailsFlightViewModel
     {
+        public int UniqueNumber { get; set; }
+
         public string StartingLocation { get; set; }
 
         public string Destination { get; set; }

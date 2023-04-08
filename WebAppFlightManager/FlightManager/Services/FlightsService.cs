@@ -30,14 +30,15 @@
 
             Flight flight = new Flight()
             {
-                  StartingLocation = model.StartingLocation,
-                  Destination = model.Destination,
-                  TimeTakeOf = model.TimeTakeOf,
-                  TimeLanding = model.TimeLanding,
-                  AirplaneType = model.AirplaneType,
-                  AllSeats = model.AllSeats,
-                  BusinessClassSeats = model.BusinessClassSeats,
-                  User = pilot,
+                StartingLocation = model.StartingLocation,
+                Destination = model.Destination,
+                TimeTakeOf = model.TimeTakeOf,
+                TimeLanding = model.TimeLanding,
+                AirplaneType = model.AirplaneType,
+                AllSeats = model.AllSeats,
+                BusinessClassSeats = model.BusinessClassSeats,
+                UserId = model.UserId,
+                UniqueNumber = model.UniqueNumber,
             };
 
             await this.context.Flights.AddAsync(flight);
@@ -49,6 +50,22 @@
             Flight flight = await this.context.Flights.FindAsync(id);
 
             this.context.Remove(flight);
+            await this.context.SaveChangesAsync();
+        }
+        public async Task EditFlightByAdminAsync(EditFlightViewModel model)
+        {
+            Flight flight = await this.context.Flights.FirstOrDefaultAsync(x => x.Id == model.Id);
+             flight.StartingLocation = model.StartingLocation;
+            flight.Destination = model.Destination;
+            flight.TimeTakeOf = model.TimeTakeOf;
+            flight.TimeLanding = model.TimeLanding;
+            flight.AirplaneType = model.AirplaneType;
+            flight.AllSeats = model.AllSeats;
+            flight.BusinessClassSeats = model.BusinessClassSeats;
+            flight.UserId = model.UserId;
+            flight.UniqueNumber = model.UniqueNumber;
+
+            this.context.Update(flight);
             await this.context.SaveChangesAsync();
         }
 
@@ -66,8 +83,9 @@
                 AirplaneType = flight.AirplaneType,
                 AllSeats = flight.AllSeats,
                 BusinessClassSeats = flight.BusinessClassSeats,
+                UniqueNumber = flight.UniqueNumber,
             };
-             model.Pilot = $"{flight.Pilot.FirstName} {flight.Pilot.LastName}";
+            model.Pilot = $"{flight.User.FirstName} {flight.User.LastName}";
 
             return model;
         }
@@ -88,6 +106,7 @@
                                 AirplaneType = x.AirplaneType,
                                 AllSeats = x.AllSeats,
                                 BusinessClassSeats = x.BusinessClassSeats,
+                                UniqueNumber = x.UniqueNumber,
                             })
                             .ToListAsync();
 
@@ -96,33 +115,39 @@
             return model;
         }
 
-        //public async Task<EditFlightViewModel> GetFlightToEditAsync(string id)
-        //{
-        //    Flight flight = await this.context.Flights.FirstOrDefaultAsync(x => x.Id == id);
+        public async Task<EditFlightViewModel> GetFlightToEditAsync(string id)
+        {
+            Flight flight = await this.context.Flights.FirstOrDefaultAsync(x => x.Id == id);
 
-        //    return new EditFlightViewModel()
-        //    {
-        //        Id = flight.Id,
-        //        StartingLocation = flight.StartingLocation,
-        //        Destination = flight.Destination,
-        //        TimeTakeOf = flight.TimeTakeOf,
-        //        TimeLanding = flight.TimeLanding,
-        //        AirplaneType = flight.AirplaneType,
-        //        AllSeats = flight.AllSeats,
-        //        BusinessClassSeats = flight.BusinessClassSeats,
-        //        PilotId = flight.PilotId,
-        //        Pilots = await this.GetPilotsSelectListAsync(),
-        //    };
-        //}
+            return new EditFlightViewModel()
+            {
+                Id = flight.Id,
+                StartingLocation = flight.StartingLocation,
+                Destination = flight.Destination,
+                TimeTakeOf = flight.TimeTakeOf,
+                TimeLanding = flight.TimeLanding,
+                AirplaneType = flight.AirplaneType,
+                AllSeats = flight.AllSeats,
+                BusinessClassSeats = flight.BusinessClassSeats,
+                UserId = flight.UserId,
+                UniqueNumber = flight.UniqueNumber,
+                Pilots = await this.GetPilotsSelectListAsync(),
+            };
+        }
 
-        //public async Task<SelectListPilotsViewModel> GetPilotsSelectListAsync()
-        //{
-        //    List<SelectListPilotsViewModel> pilots = await this.context.Users
-        //       .Select(x => new SelectListPilotsViewModel() { Id = x.Id, FullName = $"{x.FirstName} {x.LastName}" })
-        //       .ToListAsync();
-        //    pilots.Insert(0, new SelectListPilotsViewModel() { Id = null, FullName = "Select later!" });
-        //    return pilots;
-        //}
+        public async Task<SelectList> GetPilotsSelectListAsync()
+        {
+
+            List<SelectListPilotsViewModel> pilots = await this.context.Users
+                .Select(x => new SelectListPilotsViewModel()
+                {
+                    Id = x.Id,
+                    FullName = $"{x.FirstName} - {x.LastName}",
+                }).ToListAsync();
+
+            return new SelectList(pilots, "Id", "FullName");
+        }
+
 
     }
 }

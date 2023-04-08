@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlightManager.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230406142432_MigrationNumber3")]
-    partial class MigrationNumber3
+    [Migration("20230407185524_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,9 +38,6 @@ namespace FlightManager.Migrations
                     b.Property<string>("Destination")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PilotId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("StartingLocation")
                         .HasColumnType("nvarchar(max)");
 
@@ -53,9 +50,12 @@ namespace FlightManager.Migrations
                     b.Property<int>("UniqueNumber")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("PilotId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Flights");
                 });
@@ -174,26 +174,6 @@ namespace FlightManager.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "55ad1f28-59cc-4168-a2b3-63a9ba8b4bd9",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "5ef2acde-e87c-451a-af58-075508486d28",
-                            Email = "admin@abv.bg",
-                            EmailConfirmed = false,
-                            FirstName = "Alex",
-                            LastName = "Johnson",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "admin@abv.bg",
-                            NormalizedUserName = "admin@abv.bg",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEjvFG/KyYayDQdrOWMO8kF/e4tRwcWh+cZA9xW9OO8s+2GOb8D+aElZjFp/GuxFKA==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "",
-                            TwoFactorEnabled = false,
-                            UserName = "admin@abv.bg"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -221,15 +201,6 @@ namespace FlightManager.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "e7c31328-8a76-4bde-8ffe-d2579926098f",
-                            ConcurrencyStamp = "d12c7be5-24d1-4290-8817-8c3f56a6adbc",
-                            Name = "Admin",
-                            NormalizedName = "Admin"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -342,9 +313,9 @@ namespace FlightManager.Migrations
 
             modelBuilder.Entity("FlightManager.Models.Flight", b =>
                 {
-                    b.HasOne("FlightManager.Models.User", "Pilot")
+                    b.HasOne("FlightManager.Models.User", "User")
                         .WithMany("Flights")
-                        .HasForeignKey("PilotId");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("FlightManager.Models.Reservation", b =>

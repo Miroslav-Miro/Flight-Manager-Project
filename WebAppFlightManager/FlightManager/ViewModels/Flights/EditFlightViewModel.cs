@@ -7,6 +7,9 @@ namespace FlightManager.ViewModels.Flights
     {
         public string Id { get; set; }
 
+        public int UniqueNumber { get; set; }
+
+
         public string StartingLocation { get; set; }
 
         public string Destination { get; set; }
@@ -17,7 +20,7 @@ namespace FlightManager.ViewModels.Flights
 
         public string AirplaneType { get; set; }
 
-        public string PilotId { get; set; }
+        public string UserId { get; set; }
 
         public SelectList Pilots { get; set; }
 

@@ -1,4 +1,7 @@
-﻿namespace FlightManager.ViewModels.Pilots
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
+
+namespace FlightManager.ViewModels.Pilots
 {
     public class SelectListPilotsViewModel
     {

@@ -1,12 +1,17 @@
-﻿@using FlightManager.ViewModels.Flights;
+﻿@using FlightManager.Common
+@using FlightManager.ViewModels.Flights;
 @model IndexFlightsViewModel
 
-@if (User.IsInRole("Admin"))
+@if (User.IsInRole(GlobalConstants.AdminRole))
 {
     <p id="my-p">
         <a asp-action="Create" class="btn" style="background-color:turquoise">Create New</a>
     </p>
 }
+
+ <p id="my-p">
+        <a asp-action="Create" class="btn" style="background-color:turquoise">Create New</a>
+    </p>
 
 <table class="table table-hover table-striped">
     <thead class="thead-dark">

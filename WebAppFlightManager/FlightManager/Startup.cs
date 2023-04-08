@@ -1,4 +1,5 @@
 using FlightManager.Data;
+using FlightManager.Data.Seeding;
 using FlightManager.Models;
 using FlightManager.Services;
 using FlightManager.Services.Contracts;
@@ -47,9 +48,10 @@ namespace FlightManager
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
-
             services.AddTransient<IUsersService, UsersService>();
-            
+            services.AddTransient<IFlightsService, FlightsService>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +59,15 @@ namespace FlightManager
         {
             if (env.IsDevelopment())
             {
+                // Seed data on application startup
+                using (var serviceScope = app.ApplicationServices.CreateScope())
+                {
+                    var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                    dbContext.Database.Migrate();
+
+                    new ApplicationDbContextSeeder().SeedAsync(dbContext, serviceScope.ServiceProvider).GetAwaiter().GetResult();
+                }
+
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
             }

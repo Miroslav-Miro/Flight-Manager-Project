@@ -5,6 +5,7 @@ namespace FlightManager.ViewModels.Flights
     public class IndexFlightViewModel
     {
         public string Id { get; set; }
+        public int UniqueNumber { get; set; }
 
         public string StartingLocation { get; set; }
 

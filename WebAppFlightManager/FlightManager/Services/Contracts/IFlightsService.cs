@@ -1,4 +1,5 @@
 ﻿using FlightManager.ViewModels.Flights;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Threading.Tasks;
 
 namespace FlightManager.Services.Contracts
@@ -12,5 +13,12 @@ namespace FlightManager.Services.Contracts
         Task<IndexFlightsViewModel> GetFlightsAsync(IndexFlightsViewModel model);
 
         Task<DetailsFlightViewModel> GetFlightDetails(string id);
+
+        Task EditFlightByAdminAsync(EditFlightViewModel model);
+
+        Task<EditFlightViewModel> GetFlightToEditAsync(string id);
+
+        Task<SelectList> GetPilotsSelectListAsync();
+
     }
 }

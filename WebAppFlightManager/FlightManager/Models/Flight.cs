@@ -23,9 +23,9 @@
 
         public string AirplaneType { get; set; }
 
-        public string PilotId { get; set; }
+        public string UserId { get; set; }
 
-        public virtual User Pilot { get; set; }
+        public virtual User User { get; set; }
 
         public int UniqueNumber { get; set; }
 
