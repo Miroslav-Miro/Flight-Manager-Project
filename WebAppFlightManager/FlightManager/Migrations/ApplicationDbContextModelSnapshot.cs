@@ -81,11 +81,11 @@ namespace FlightManager.Migrations
                     b.Property<string>("Nationality")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PIN")
-                        .HasColumnType("int");
+                    b.Property<string>("PIN")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PhoneNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TicketType")
                         .HasColumnType("int");
@@ -318,7 +318,7 @@ namespace FlightManager.Migrations
 
             modelBuilder.Entity("FlightManager.Models.Reservation", b =>
                 {
-                    b.HasOne("FlightManager.Models.Flight", "Flight")
+                    b.HasOne("FlightManager.Models.Flight", "Flights")
                         .WithMany()
                         .HasForeignKey("FlightId");
                 });

@@ -51,6 +51,9 @@ namespace FlightManager
             services.AddTransient<IUsersService, UsersService>();
             services.AddTransient<IFlightsService, FlightsService>();
 
+            //string key = this.Configuration["SendGrid:ApiKey"];
+
+            //services.AddTransient<IEmailSender>(x => new SendGridEmailSender(key));
 
         }
 

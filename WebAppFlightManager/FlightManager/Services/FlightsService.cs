@@ -39,6 +39,7 @@
                 BusinessClassSeats = model.BusinessClassSeats,
                 UserId = model.UserId,
                 UniqueNumber = model.UniqueNumber,
+
             };
 
             await this.context.Flights.AddAsync(flight);

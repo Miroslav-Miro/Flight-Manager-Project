@@ -8,7 +8,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HousekeeperApp.Data.Seeding
+namespace FlightManager.Data.Seeding
 {
     public class UsersSeeder : ISeeder
     {

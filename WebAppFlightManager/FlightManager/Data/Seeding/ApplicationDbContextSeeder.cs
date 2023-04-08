@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using FlightManager.Data.Seeding.Contracts;
-    using HousekeeperApp.Data.Seeding;
+    using FlightManager.Data.Seeding;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
 

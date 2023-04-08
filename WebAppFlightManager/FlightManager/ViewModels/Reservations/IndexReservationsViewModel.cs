@@ -5,7 +5,7 @@ namespace FlightManager.ViewModels.Reservations
 {
     public class IndexReservationsViewModel : PagingViewModel
     {
-        public ICollection<IndexReservationViewModel> Reservation { get; set; }
+        public ICollection<IndexReservationViewModel> Reservations { get; set; }
 
     }
 }

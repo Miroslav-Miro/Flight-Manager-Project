@@ -12,10 +12,12 @@
     public class FlightsController : Controller
     {
         private readonly IFlightsService flightsService;
+        private readonly IUsersService usersService;
 
-        public FlightsController(IFlightsService flightsService)
+        public FlightsController(IFlightsService flightsService,IUsersService usersService )
         {
             this.flightsService = flightsService;
+            this.usersService = usersService;
         }
 
         public async Task<IActionResult> Index(IndexFlightsViewModel model)
@@ -32,6 +34,7 @@
             CreateFlightViewModel model = new CreateFlightViewModel();
             string userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             model.TimeTakeOf = System.DateTime.Now;
+            model.Pilots = await this.usersService.GetUserSelectListAsync(userId);
             return this.View(model);
         }
 
@@ -48,6 +51,7 @@
                 await this.flightsService.CreateFlightAsync(model);
                 return this.RedirectToAction(nameof(this.Index));
             }
+            model.Pilots = await this.usersService.GetUserSelectListAsync(model.UserId);
             return this.View(model);
         }
 

@@ -1,10 +1,14 @@
-﻿using FlightManager.Models;
-using FlightManager.Models.Enums;
+﻿using System;
 
-namespace FlightManager.ViewModels.Reservations
+namespace FlightManager.Models
 {
-    public class IndexReservationViewModel
+    public class Client
     {
+        public Client()
+        {
+            this.Id = Guid.NewGuid().ToString();
+        }
+
         public string Id { get; set; }
 
         public string FirstName { get; set; }
@@ -19,12 +23,7 @@ namespace FlightManager.ViewModels.Reservations
 
         public string Nationality { get; set; }
 
-        public TicketType TicketType { get; set; }
-
         public string Email { get; set; }
 
-        public string FlightId { get; set; }
-
-        public virtual Flight Flights { get; set; }
     }
 }

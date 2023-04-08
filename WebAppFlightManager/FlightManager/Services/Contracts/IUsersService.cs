@@ -2,6 +2,7 @@
 {
     using System.Threading.Tasks;
     using FlightManager.ViewModels.Users;
+    using Microsoft.AspNetCore.Mvc.Rendering;
 
     public interface IUsersService
     {
@@ -17,5 +18,7 @@
         Task<EditUserViewModel> GetUserToEditByIdAsync(string id);
 
         Task UpdateUserAsync(EditUserViewModel model);
+
+        Task<SelectList> GetUserSelectListAsync(string userId);
     }
 }

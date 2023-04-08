@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace FlightManager.Services.Contracts
 {
-    public interface IReservationService
+    public interface IReservationsService
     {
 
         Task CreateReservationAsync(CreateReservationViewModel model);
 
         Task DeleteReservationAsync(string id);
 
-        Task<IndexReservationViewModel> GetReservationsAsync(IndexReservationsViewModel model);
+        Task<IndexReservationsViewModel> GetReservationsAsync(IndexReservationsViewModel model);
 
         Task<DetailsReservationViewModel> GetReservationDetails(string id);
 

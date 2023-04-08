@@ -27,6 +27,8 @@ namespace FlightManager.ViewModels.Reservations
 
         public string Email { get; set; }
 
-        public virtual Flight Flights { get; set; }
+        public string FlightId { get; set; }
+
+        public SelectList Flights { get; set; }
     }
 }

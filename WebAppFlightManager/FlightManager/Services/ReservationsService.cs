@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace FlightManager.Services
 {
-    public class ReservationsService : IReservationService
+    public class ReservationsService : IReservationsService
     {
         private readonly ApplicationDbContext context;
 
@@ -23,8 +23,12 @@ namespace FlightManager.Services
             this.context = context;
         }
 
+
+
         public async Task CreateReservationAsync(CreateReservationViewModel model)
         {
+
+
             Reservation reservation = new Reservation()
             {
                 FirstName = model.FirstName,
@@ -35,6 +39,7 @@ namespace FlightManager.Services
                 Nationality = model.Nationality,
                 TicketType = model.TicketType,
                 Email = model.Email,
+                FlightId = model.FlightId,
 
             };
 
@@ -42,9 +47,12 @@ namespace FlightManager.Services
             await this.context.SaveChangesAsync();
         }
 
-        public Task DeleteReservationAsync(string id)
+        public async Task DeleteReservationAsync(string id)
         {
-            throw new NotImplementedException();
+            Reservation reservation = await this.context.Reservations.FindAsync(id);
+
+            this.context.Remove(reservation);
+            await this.context.SaveChangesAsync();
         }
 
         public Task<DetailsReservationViewModel> GetReservationDetails(string id)
@@ -52,9 +60,33 @@ namespace FlightManager.Services
             throw new NotImplementedException();
         }
 
-        public Task<IndexReservationViewModel> GetReservationsAsync(IndexReservationsViewModel model)
+        public async Task<IndexReservationsViewModel> GetReservationsAsync(IndexReservationsViewModel model)
         {
-            throw new NotImplementedException();
+            model.Reservations = await this.context.Reservations
+                            .Skip((model.Page - 1) * model.ItemsPerPage)
+                            .Take(model.ItemsPerPage)
+                            .Select(x => new IndexReservationViewModel()
+                            {
+                                Id = x.Id,
+                                FirstName = x.FirstName,
+                                MiddleName= x.MiddleName,
+                                LastName= x.LastName,
+                                PIN= x.PIN,
+                                PhoneNumber= x.PhoneNumber,
+                                Nationality= x.Nationality,
+                                TicketType= x.TicketType,
+                                Email= x.Email,
+                                FlightId= x.FlightId,
+                                Flights= x.Flights,
+
+                            })
+                            .ToListAsync();
+
+            model.ElementsCount = this.context.Reservations.Count();
+
+            return model;
         }
+
+        
     }
 }

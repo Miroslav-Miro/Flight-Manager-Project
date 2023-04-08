@@ -190,11 +190,11 @@ namespace FlightManager.Migrations
                     FirstName = table.Column<string>(nullable: true),
                     MiddleName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
-                    PIN = table.Column<int>(nullable: false),
-                    PhoneNumber = table.Column<int>(nullable: false),
+                    PIN = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: true),
                     Nationality = table.Column<string>(nullable: true),
-                    TicketType = table.Column<int>(nullable: false),
                     Email = table.Column<string>(nullable: true),
+                    TicketType = table.Column<int>(nullable: false),
                     FlightId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

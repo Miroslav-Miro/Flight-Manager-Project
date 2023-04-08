@@ -1,12 +1,15 @@
 ﻿namespace FlightManager.Services
 {
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using FlightManager.Data;
     using FlightManager.Models;
     using FlightManager.Services.Contracts;
+    using FlightManager.ViewModels.Pilots;
     using FlightManager.ViewModels.Users;
     using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.EntityFrameworkCore;
 
     public class UsersService : IUsersService
@@ -100,7 +103,17 @@
 
             return model;
         }
-
+        public async Task<SelectList> GetUserSelectListAsync(string userId)
+        {
+            List<SelectListPilotsViewModel> pilots = await this.context.Users
+                .Where(x => x.Id == userId)
+                .Select(x => new SelectListPilotsViewModel()
+                {
+                    Id = x.Id,
+                    FullName = $"{x.FirstName} - {x.LastName}",
+                }).ToListAsync();
+            return new SelectList(pilots, "Id", "FullName");
+        }
         public async Task<UsersViewModel> GetUsersAsync(int page = 1, int count = 10)
         {
             UsersViewModel model = new UsersViewModel();
