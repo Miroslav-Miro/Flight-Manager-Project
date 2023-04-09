@@ -33,7 +33,7 @@ namespace FlightManager
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("DefaultConnection1")));
             services
                 .AddDefaultIdentity<User>(options =>
                 {
