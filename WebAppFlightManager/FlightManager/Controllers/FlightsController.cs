@@ -70,7 +70,7 @@
 
         [Authorize(Roles = (GlobalConstants.AdminRole))]
         [HttpGet]
-        public async Task<IActionResult> EditByAdmin(string id)
+        public async Task<IActionResult> Edit(string id)
         {
             EditFlightViewModel model = await this.flightsService.GetFlightToEditAsync(id);
             return this.View(model);
@@ -79,7 +79,7 @@
         [Authorize(Roles = (GlobalConstants.AdminRole))]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditByAdmin(EditFlightViewModel model)
+        public async Task<IActionResult> Edit(EditFlightViewModel model)
         {
             if (this.ModelState.IsValid)
             {
