@@ -1,5 +1,6 @@
 ﻿namespace FlightManager.Services.Contracts
 {
+    using System.Collections.Generic;
     using System.Threading.Tasks;
     using FlightManager.ViewModels.Users;
     using Microsoft.AspNetCore.Mvc.Rendering;
@@ -20,5 +21,6 @@
         Task UpdateUserAsync(EditUserViewModel model);
 
         Task<SelectList> GetUserSelectListAsync(string userId);
+        Task<SelectList> GetAllUsersAsync();
     }
 }

@@ -28,17 +28,17 @@
         }
 
         // GET: Create
-        //[Authorize(Roles = GlobalConstants.AdminRole)]
+        [Authorize(Roles = GlobalConstants.AdminRole)]
         public async Task<IActionResult> Create()
         {
             CreateFlightViewModel model = new CreateFlightViewModel();
-            string userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            //string userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             model.TimeTakeOf = System.DateTime.Now;
-            model.Pilots = await this.usersService.GetUserSelectListAsync(userId);
+            model.Pilots = await this.usersService.GetAllUsersAsync();
             return this.View(model);
         }
 
-        //[Authorize(Roles = GlobalConstants.AdminRole)]
+        [Authorize(Roles = GlobalConstants.AdminRole)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateFlightViewModel model)

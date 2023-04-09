@@ -8,7 +8,7 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    public class RolesSeeder
+    public class RolesSeeder: ISeeder
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
@@ -29,6 +29,7 @@
                     throw new Exception(string.Join(Environment.NewLine, result.Errors.Select(e => e.Description)));
                 }
             }
+
         }
     }
 }

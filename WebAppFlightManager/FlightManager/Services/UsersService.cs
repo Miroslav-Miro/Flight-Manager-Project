@@ -1,8 +1,10 @@
 ﻿namespace FlightManager.Services
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using FlightManager.Common;
     using FlightManager.Data;
     using FlightManager.Models;
     using FlightManager.Services.Contracts;
@@ -50,6 +52,20 @@
             };
 
             await this.userManager.CreateAsync(user, model.Password);
+
+            User dbuser = await userManager.FindByNameAsync(user.Email);
+
+            var roleExists = await roleManager.RoleExistsAsync(GlobalConstants.UserRole);
+
+            if (roleExists)
+            {
+                var result = await userManager.AddToRoleAsync(dbuser, GlobalConstants.UserRole);
+
+                if (!result.Succeeded)
+                {
+                    throw new Exception(string.Join(Environment.NewLine, result.Errors.Select(e => e.Description)));
+                }
+            }
         }
 
         public async Task UpdateUserAsync(EditUserViewModel model)
@@ -137,5 +153,18 @@
             return model;
         }
 
+        public async Task<SelectList> GetAllUsersAsync()
+        {
+
+            List<SelectListPilotsViewModel> pilots =  await this.context.Users
+                  .Select(x => new SelectListPilotsViewModel()
+                  {
+                      Id = x.Id,
+                     FullName = $"{x.FirstName} {x.LastName}"
+                  })
+              .ToListAsync();
+
+            return new SelectList(pilots, "Id", "FullName");
+        }
     }
 }
