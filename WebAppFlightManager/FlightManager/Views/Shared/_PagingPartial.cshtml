@@ -2,17 +2,18 @@
 <nav aria-label="..." class="">
     <ul class="pagination  justify-content-center ">
         <li style="margin-right:5px">
-            <form asp-controller="Requests" asp-action="Index" method="post">
+            <form asp-controller="@this.Context.Request.RouteValues["controller"].ToString()" asp-action="Index" method="post">
                 <select asp-for="ItemsPerPage" class="form-control border-dark" onchange="changeItemsPerPage();">
                     <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="20">20</option>
                     <option value="30">30</option>
+                    <option value="50">50</option>
                 </select>
                 <input type="submit" id="loginSubmit" style="visibility:hidden" />
             </form>
 
-        </li>F
+        </li>
         <li></li>
         <li class="page-item @if (!Model.HasPreviousPage) {
         <text>disabled</text>

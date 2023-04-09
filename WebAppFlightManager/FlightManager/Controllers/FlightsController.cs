@@ -68,7 +68,7 @@
             return this.View(model);
         }
 
-        //[Authorize(Roles = (GlobalConstants.AdminRole))]
+        [Authorize(Roles = (GlobalConstants.AdminRole))]
         [HttpGet]
         public async Task<IActionResult> EditByAdmin(string id)
         {
@@ -76,7 +76,7 @@
             return this.View(model);
         }
 
-        //[Authorize(Roles = (GlobalConstants.AdminRole))]
+        [Authorize(Roles = (GlobalConstants.AdminRole))]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditByAdmin(EditFlightViewModel model)

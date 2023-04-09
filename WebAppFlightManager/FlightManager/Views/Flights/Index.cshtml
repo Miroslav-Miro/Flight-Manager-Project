@@ -4,18 +4,17 @@
 
 @if (User.IsInRole(GlobalConstants.AdminRole))
 {
-    <p id="my-p">
-        <a asp-action="Create" class="btn" style="background-color:turquoise">Create New</a>
-    </p>
+        <p id="my-p">
+            <a asp-action="Create" class="btn" style="background-color:turquoise">Create New</a>
+        </p>
 }
-
- <p id="my-p">
-        <a asp-action="Create" class="btn" style="background-color:turquoise">Create New</a>
-    </p>
 
 <table class="table table-hover table-striped">
     <thead class="thead-dark">
         <tr>
+             <th>
+                Unique Number
+            </th>
             <th>
                 Starting location
             </th>
@@ -31,40 +30,47 @@
             <th>
                 Duration
             </th>
-            <th>
-                Airplane type
-            </th>
+           
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.Flights)
         {
-            <tr>
-                <td>
+                <tr>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.UniqueNumber)
+                    </td>
+                    <td>
                     @Html.DisplayFor(modelItem => item.StartingLocation)
-                </td>
-                <td>
+                    </td>
+                    <td>
                     @Html.DisplayFor(modelItem => item.Destination)
-                </td>
-                <td>
+                    </td>
+                    <td>
                     @Html.DisplayFor(modelItem => item.TimeTakeOf)
-                </td>
-                <td>
+                    </td>
+                    <td>
                     @Html.DisplayFor(modelItem => item.TimeLanding)
-                </td>
-                <td>
+                    </td>
+                    <td>
                     @Html.DisplayFor(modelItem => item.Duration)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AirplaneType)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
+                    </td>
+                    
+
+                @if (User.IsInRole(GlobalConstants.AdminRole))
+                {
+                        <td>
+
+
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                }
+
+
+                </tr>
         }
     </tbody>
 </table>
