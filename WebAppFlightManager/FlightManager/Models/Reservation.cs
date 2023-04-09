@@ -3,7 +3,7 @@
     using System;
     using FlightManager.Models.Enums;
 
-    public class Reservation:Client
+    public class Reservation : Client
     {
         public Reservation()
         {
