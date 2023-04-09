@@ -55,6 +55,8 @@
             return this.View(model);
         }
 
+
+        [Authorize(Roles = GlobalConstants.AdminRole)]
         [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {

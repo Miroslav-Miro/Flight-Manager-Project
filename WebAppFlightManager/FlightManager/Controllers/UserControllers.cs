@@ -3,6 +3,7 @@
     using System.Data;
     using System.Linq;
     using System.Threading.Tasks;
+    using FlightManager.Common;
     using FlightManager.Models;
     using FlightManager.Services.Contracts;
     using Microsoft.AspNetCore.Authentication;
@@ -13,7 +14,8 @@
     using Services;
     using ViewModels.Users;
 
-    // [Authorize(Roles = "Admin")]
+
+    [Authorize(Roles = GlobalConstants.AdminRole)]
     public class UsersController : Controller
     {
         private readonly IUsersService usersService;
